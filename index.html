@@ -4,7 +4,7 @@
     <link rel="icon" href="assets/db-logo.svg" type="image/svg+xml">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Wagengattungen</title>
+    <title>Wagengattungen Güterverkehr</title>
     
     <!-- FontAwesome 6 Integration -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,9 +20,9 @@
             --db-gray-60: #646973;
             --db-gray-80: #282D37;
 
-            /* Animationen: Schnell und Professionell */
+            /* Animationen */
             --ease-modern: cubic-bezier(0.16, 1, 0.3, 1);
-            --transition-layer: 0.8s; /* Etwas langsamer für weichere Blenden */
+            --transition-layer: 0.8s;
             --transition-slide: 0.8s; 
         }
 
@@ -72,7 +72,6 @@
         }
 
         .start-logo { height: 175px; width: auto; }
-
         .start-title { margin: 6px 0 0 0; font-size: 2.3rem; font-weight: 900; color: var(--db-black); letter-spacing: -0.01em; }
         .start-lead { margin: 10px 0 12px 0; color: var(--db-gray-60); font-size: 1.1rem; line-height: 1.5; max-width: 760px; }
 
@@ -93,22 +92,6 @@
             transition: transform 0.2s var(--ease-modern), box-shadow 0.2s var(--ease-modern);
         }
         .start-cta:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(236,0,22,0.28); }
-        .start-cta:active { transform: translateY(0); box-shadow: 0 9px 18px rgba(236,0,22,0.24); }
-
-        .start-hint { display: flex; align-items: center; gap: 8px; color: var(--db-gray-60); font-weight: 700; justify-content: center; }
-        .key-pill {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 6px 10px;
-            border-radius: 8px;
-            background: var(--db-gray-10);
-            border: 1px solid var(--db-gray-20);
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: var(--db-black);
-            min-width: 36px;
-        }
 
         .start-names {
             margin: 8px 0 0 0;
@@ -119,18 +102,6 @@
             text-transform: uppercase;
             text-align: center;
             line-height: 1.5;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Ausrichtung: Button mittig zwischen Titel und Namen */
-        #layer-start .start-cta { margin: 0; }
-        #layer-start .start-names { margin: 0; }
-
-        @media (max-width: 900px) {
-            #layer-start { padding: 40px 18px; }
-            .start-title { font-size: 2rem; }
-            .start-lead { font-size: 1.05rem; }
         }
 
         /* --- APP UI --- */
@@ -187,8 +158,6 @@
 
         /* --- SLIDE ELEMENTS --- */
         .db-grid { display: grid; gap: 1.5rem; width: 100%; }
-        .cols-2 { grid-template-columns: 1fr 1fr; }
-        .cols-3 { grid-template-columns: repeat(3, 1fr); }
         .cols-4 { grid-template-columns: repeat(4, 1fr); }
 
         .db-card {
@@ -207,7 +176,6 @@
         .card-desc { font-size: 1rem; color: var(--db-gray-60); line-height: 1.4; }
         .icon-box { font-size: 2rem; color: var(--db-gray-60); margin-bottom: 0.5rem; }
 
-        /* Composition / Analyse Slide Styling */
         .comp-wrapper {
             display: flex;
             align-items: center;
@@ -228,7 +196,6 @@
         .comp-letter { font-family: monospace; font-size: 3rem; font-weight: 900; line-height: 1; }
         .comp-label { font-size: 0.8rem; margin-top: 0.5rem; text-transform: uppercase; font-weight: 700; opacity: 0.8; }
 
-        /* Team & Names */
         .team-list {
             list-style: none;
             padding: 0;
@@ -248,18 +215,7 @@
         }
         .team-member i { color: var(--db-red); font-size: 1rem; }
 
-        .start-names {
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            color: var(--db-gray-60);
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            text-align: center;
-            line-height: 1.6;
-        }
-
-        /* --- SLIDE TRANSITIONS (Lift & Scale) --- */
+        /* --- SLIDE TRANSITIONS --- */
         .slide-content {
             opacity: 0;
             transform: translateY(30px) scale(0.98); 
@@ -273,18 +229,25 @@
             justify-content: center;
             will-change: transform, opacity;
         }
-        .slide-content.active { 
-            opacity: 1; 
-            transform: translateY(0) scale(1); 
-            pointer-events: all; 
-        }
+        .slide-content.active { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
 
-        /* Progress Bar */
         .progress-container { position: fixed; bottom: 0; left: 0; width: 100%; height: 6px; background: var(--db-gray-20); z-index: 60; }
         .progress-bar { height: 100%; background: var(--db-red); width: 0%; transition: width 0.6s var(--ease-modern); }
 
-        /* Video Styles */
         video { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Legal Slide Styles */
+        .legal-box {
+            background: var(--db-white);
+            padding: 2.5rem;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 900px;
+            border-top: 6px solid var(--db-red);
+        }
+        .legal-text { font-size: 0.95rem; color: var(--db-gray-60); line-height: 1.6; }
+        .legal-link { color: var(--db-red); text-decoration: none; font-weight: 700; }
+        .legal-link:hover { text-decoration: underline; }
 
     </style>
 </head>
@@ -293,7 +256,7 @@
     <!-- START LAYER -->
     <div id="layer-start" class="layer active">
         <img src="assets/db-fv-edo-logo_1.svg" alt="DB Logo" class="start-logo">
-        <div class="start-title">Wagengattungen</div>
+        <div class="start-title">Wagengattungen Güterverkehr</div>
         <button class="start-cta" type="button"><i class="fa-solid fa-play"></i> Präsentation starten</button>
         <div class="start-names">
             Eine Präsentation von<br>
@@ -301,7 +264,7 @@
         </div>
     </div>
 
-    <!-- VIDEO LAYER (Intro & Outro) -->
+    <!-- VIDEO LAYER -->
     <div id="layer-video" class="layer">
         <video id="video-player" playsinline>
             <source src="assets/db-soundlogo.mp4" type="video/mp4">
@@ -311,18 +274,14 @@
     <!-- APP LAYER -->
     <div id="layer-app" class="layer">
         <header>
-            <!-- FV DORTMUND SVG LOGO -->
             <div style="height: 55px; display: flex; align-items: center;">
                 <img src="assets/db-fv-edo-logo_2.svg" alt="FV Dortmund Logo" style="height: 100%; width: auto;">
             </div>
-            
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--db-gray-60);" id="slide-info">01 / 11</div>
+            <div style="font-size: 1.2rem; font-weight: 800; color: var(--db-gray-60);" id="slide-info">01 / 09</div>
         </header>
         
         <main>
-            <div class="slide-stage" id="slide-stage">
-                <!-- Slides Injected by JS -->
-            </div>
+            <div class="slide-stage" id="slide-stage"></div>
         </main>
 
         <div class="progress-container">
@@ -330,9 +289,9 @@
         </div>
     </div>
 
-    <!-- LOCK LAYER (Final White Screen with Names) -->
+    <!-- LOCK LAYER -->
     <div id="layer-lock" class="layer">
-        <div style="text-align: center; opacity: 0.1;">
+        <div style="text-align: center; opacity: 0.15;">
             <p style="font-weight: 800; font-size: 0.8rem; letter-spacing: 0.2em;">
                 MAX • NICO • MALTE • FOX • LENNARD • DAMON
             </p>
@@ -340,14 +299,13 @@
     </div>
 
     <script>
-        /* --- DATENBANK --- */
         const slides = [
             {
                 type: 'hero',
                 tag: 'Einleitung',
-                title: 'Systematik der DB Wagen',
-                text: 'Einführung in die Welt der UIC-Gattungsbezeichnungen. Was verraten die Buchstaben am Zug? Eine Präsentation für Einsteiger.',
-                icon: 'fa-solid fa-network-wired'
+                title: 'Güterverkehr auf der Schiene',
+                text: 'Einführung in die Systematik der UIC-Gattungsbezeichnungen für Güterwagen. Erfahren Sie, was Buchstaben wie "E", "G" oder "Z" über Bauart und Funktion aussagen.',
+                icon: 'fa-solid fa-train-subway'
             },
             {
                 type: 'team',
@@ -358,67 +316,21 @@
             },
             {
                 type: 'syntax',
-                tag: 'Grundlagen',
-                title: 'Die Syntax',
-                text: 'Jede Bezeichnung folgt einer strengen Logik. Sie beginnt immer mit einem Hauptzeichen, gefolgt von spezifischen Nebenzeichen.',
-                main: 'H',
-                subs: ['aa', 'b', 'i', 'n', 's']
-            },
-            {
-                type: 'section',
-                title: 'I. Personenverkehr',
-                text: 'Klassifizierung nach Komfortstufen, Kapazität und technischer Ausstattung der Reisezugwagen.'
-            },
-            {
-                type: 'grid',
-                tag: 'Hauptzeichen',
-                title: 'Die Wagenklassen',
-                text: 'Der erste Großbuchstabe gibt die Nutzungskategorie und den Servicegrad an.',
-                items: [
-                    { c: 'A', t: '1. Klasse', d: 'Fahrzeuge mit höchstem Komfort, meist Abteil- oder exklusive Großraumwagen.', i: 'fa-solid fa-crown' },
-                    { c: 'B', t: '2. Klasse', d: 'Standardwagen für den Reiseverkehr mit hoher Sitzplatzkapazität.', i: 'fa-solid fa-user-group' },
-                    { c: 'WR', t: 'Speisewagen', d: 'Fahrzeuge mit Bordrestaurant oder Bistro-Einrichtungen zur Verpflegung.', i: 'fa-solid fa-utensils' },
-                    { c: 'D', t: 'Gepäckwagen', d: 'Spezialwagen zum Transport von Koffern oder Fahrrädern.', i: 'fa-solid fa-suitcase-rolling' }
-                ]
-            },
-            {
-                type: 'grid',
-                tag: 'Nebenzeichen',
-                title: 'Technische Ausstattung',
-                text: 'Kleinbuchstaben präzisieren die technische Bauart und die Energieversorgung.',
-                items: [
-                    { c: 'm', t: 'Standard-Maß', d: 'Wagen mit einer Länge von mehr als 24,5 m und Gummiwulstübergängen.', i: 'fa-solid fa-arrows-left-right' },
-                    { c: 'p', t: 'Großraumwagen', d: 'Klimatisierte Fahrzeuge mit Mittelgang statt einzelner Abteile.', i: 'fa-solid fa-wind' },
-                    { c: 'f', t: 'Steuerwagen', d: 'Besitzt einen Führerstand, um den Zug vom Ende aus fernzusteuern.', i: 'fa-solid fa-gamepad' },
-                    { c: 'z', t: 'Zentrale Energieversorgung', d: 'Die Stromversorgung erfolgt zentral über die Zugsammelschiene.', i: 'fa-solid fa-bolt' }
-                ]
-            },
-            {
-                type: 'analyze',
-                tag: 'Beispiel Personenverkehr',
-                title: 'Analyse: Bpmz',
-                text: 'Ein typischer Intercity-Großraumwagen der 2. Klasse.',
-                parts: [
-                    { l: 'B', d: '2. Klasse', type: 'main' },
-                    { l: 'p', d: 'Großraum (Klima)', type: 'sub' },
-                    { l: 'm', d: 'Länge > 24,5m', type: 'sub' },
-                    { l: 'z', d: 'Zentrale Energieversorgung', type: 'sub' }
-                ]
-            },
-            {
-                type: 'section',
-                title: 'II. Güterverkehr',
-                text: 'Die 12 Hauptkategorien (E bis Z) regeln den Transport von Schüttgut bis hin zu Flüssigkeiten.'
+                tag: 'Systematik',
+                title: 'Die Syntax der Güterwagen',
+                text: 'Jede Bezeichnung beginnt mit einem Hauptzeichen (Großbuchstabe) für die Kategorie, gefolgt von Nebenzeichen (Kleinbuchstaben) für technische Details.',
+                main: 'F',
+                subs: ['a', 'l', 'n', 's']
             },
             {
                 type: 'grid',
                 tag: 'Standard-Gattungen',
                 title: 'Die Arbeitstiere',
-                text: 'Häufigste Bauarten für robuste Transportaufgaben auf der Schiene.',
+                text: 'Häufigste Bauarten für klassische Transportaufgaben im Güterverkehr.',
                 items: [
                     { c: 'E', t: 'Offene Wagen', d: 'Für wetterunempfindliche Güter wie Kohle, Schrott oder Erze.', i: 'fa-solid fa-dumpster' },
                     { c: 'G', t: 'Gedeckte Wagen', d: 'Schützen empfindliche Güter in Kisten oder Säcken vor Witterung.', i: 'fa-solid fa-box-archive' },
-                    { c: 'L', t: 'Flachwagen', d: 'Zweiachsige Wagen für Langgut wie Holz oder Stahlträger.', i: 'fa-solid fa-cart-flatbed' },
+                    { c: 'L', t: 'Flachwagen', d: 'Zweiachsige Wagen für Landgut wie Holz oder Stahlträger.', i: 'fa-solid fa-cart-flatbed' },
                     { c: 'Z', t: 'Kesselwagen', d: 'Spezialbehälter für Flüssigkeiten (Öl, Benzin) oder Gase.', i: 'fa-solid fa-oil-can' }
                 ]
             },
@@ -426,7 +338,7 @@
                 type: 'grid',
                 tag: 'Sonder-Gattungen',
                 title: 'Spezialisierte Bauarten',
-                text: 'Wagen mit besonderen Lade- oder Entladevorrichtungen.',
+                text: 'Wagen mit besonderen Lade- oder Entladevorrichtungen für effiziente Logistik.',
                 items: [
                     { c: 'H', t: 'Schiebewandwagen', d: 'Ermöglichen das schnelle Beladen von Paletten mittels Gabelstapler.', i: 'fa-solid fa-warehouse' },
                     { c: 'S', t: 'Flachwagen (S)', d: 'Vierachsige Drehgestellwagen für schwere Lasten oder Container.', i: 'fa-solid fa-grip-lines' },
@@ -436,8 +348,8 @@
             },
             {
                 type: 'analyze',
-                tag: 'Beispiel Güterverkehr',
-                title: 'Analyse: Falns',
+                tag: 'Analyse-Beispiel',
+                title: 'Beispiel: Falns',
                 text: 'Ein moderner Schüttgutwagen für den Erztransport.',
                 parts: [
                     { l: 'F', d: 'Offen (Sonder)', type: 'main' },
@@ -450,20 +362,25 @@
             {
                 type: 'hero',
                 tag: 'Praxis-Tipp',
-                title: 'Wo findet man die Infos?',
-                text: 'Sämtliche Gattungszeichen und technischen Lastgrenzen sind am Langträger des Wagens aufgedruckt.',
+                title: 'Infos am Langträger',
+                text: 'Sämtliche Gattungszeichen, Lastgrenzen und technische Prüfdaten sind direkt am Langträger des Wagens aufgedruckt.',
                 icon: 'fa-solid fa-magnifying-glass-chart'
+            },
+            {
+                type: 'legal',
+                tag: 'Information',
+                title: 'Quellen & Rechtliches',
+                text: 'Wichtige Hinweise zur Nutzung dieser Präsentation.'
             },
             {
                 type: 'hero',
                 tag: 'Zusammenfassung',
-                title: 'Bereit für das Outro',
+                title: 'Ende der Präsentation',
                 text: 'Vielen Dank für Ihre Aufmerksamkeit. Drücken Sie "Weiter", um das Modul abzuschließen.',
                 icon: 'fa-solid fa-check-double'
             }
         ];
 
-        /* --- LOGIK --- */
         let currentIdx = 0;
         let isAppRunning = false;
         let isLocked = false;
@@ -473,45 +390,25 @@
             renderSlides();
             updateSlide();
             
-            // Start Interaction (Click)
             document.getElementById('layer-start').addEventListener('click', () => startProcess('intro'));
             
-            // Global Key Handler
             document.addEventListener('keydown', e => {
-                // START SCREEN
                 if (!isAppRunning && !isLocked && document.getElementById('layer-start').style.display !== 'none') {
-                    if (e.code === 'Space' || e.code === 'ArrowRight' || e.code === 'Enter') {
-                        startProcess('intro');
-                    }
+                    if (e.code === 'Space' || e.code === 'ArrowRight' || e.code === 'Enter') startProcess('intro');
                     return;
                 }
-
-                // APP NAVIGATION
                 if (isAppRunning && !isLocked) {
-                    if (e.code === 'ArrowRight' || e.code === 'Space' || e.code === 'Enter') {
-                        nextSlide();
-                    }
-                    if (e.code === 'ArrowLeft') {
-                        prevSlide();
-                    }
+                    if (e.code === 'ArrowRight' || e.code === 'Space' || e.code === 'Enter') nextSlide();
+                    if (e.code === 'ArrowLeft') prevSlide();
+                    if (e.key === 'f' || e.key === 'F') toggleFullscreen();
                 }
             });
 
-            // Click Navigation
             document.getElementById('layer-app').addEventListener('click', e => {
                 if(!isAppRunning) return;
                 if(e.clientX > window.innerWidth / 2) nextSlide();
                 else prevSlide();
             });
-
-            // CTA Button Start
-            const startCta = document.querySelector('.start-cta');
-            if (startCta) {
-                startCta.addEventListener('click', e => {
-                    e.stopPropagation();
-                    startProcess('intro');
-                });
-            }
         }
 
         function renderSlides() {
@@ -520,8 +417,6 @@
                 let html = '';
                 if(s.type === 'hero') {
                     html = `<div class="db-tag">${s.tag}</div><h1 class="h1">${s.title}</h1><p class="text-lead">${s.text}</p><i class="${s.icon}" style="font-size: 6rem; color: var(--db-gray-20); margin-top: 1rem;"></i>`;
-                } else if(s.type === 'section') {
-                    html = `<div style="text-align: center; width: 100%;"><h1 class="h1" style="color: var(--db-red);">${s.title}</h1><p class="text-lead" style="margin: 0 auto;">${s.text}</p></div>`;
                 } else if(s.type === 'grid') {
                     html = `<div class="db-tag">${s.tag}</div><h2 class="h2">${s.title}</h2><p class="text-lead" style="font-size: 1.1rem; margin-bottom: 1.5rem;">${s.text}</p><div class="db-grid cols-4">${s.items.map(it => `<div class="db-card"><div class="icon-box"><i class="${it.i}"></i></div><div class="card-code">${it.c}</div><div class="card-title">${it.t}</div><div class="card-desc">${it.d}</div></div>`).join('')}</div>`;
                 } else if(s.type === 'team') {
@@ -543,6 +438,21 @@
                                     </div>
                                 `).join('')}
                             </div>`;
+                } else if(s.type === 'legal') {
+                    html = `
+                        <div class="db-tag">${s.tag}</div>
+                        <h2 class="h2">${s.title}</h2>
+                        <div class="legal-box">
+                            <div class="legal-text">
+                                <strong>Quellenverzeichnis:</strong><br>
+                                Die inhaltlichen Grundlagen dieser Präsentation basieren auf der offiziellen Systematik der UIC-Gattungszeichen.<br>
+                                Hauptquelle: <a href="https://de.wikipedia.org/wiki/Gattungszeichen_deutscher_Eisenbahnwagen" class="legal-link" target="_blank">Wikipedia - Gattungszeichen deutscher Eisenbahnwagen</a><br><br>
+                                <strong>Rechtliche Hinweise:</strong><br>
+                                Sämtliche verwendeten Marken, Logos und Medien (wie das DB-Logo oder Schriftarten) verbleiben im Eigentum der jeweiligen Rechteinhaber. Diese Präsentation wurde zu Bildungszwecken erstellt.<br><br>
+                                <strong>Nutzungsrecht:</strong><br>
+                                Diese Datei ist ausschließlich für den <strong>privaten Gebrauch</strong> und interne Präsentationszwecke geeignet. Eine kommerzielle Nutzung oder öffentliche Verbreitung ist nicht gestattet.
+                            </div>
+                        </div>`;
                 }
                 return `<div class="slide-content" id="slide-${i}">${html}</div>`;
             }).join('');
@@ -556,15 +466,13 @@
 
         function nextSlide() {
             if(currentIdx < slides.length - 1) { currentIdx++; updateSlide(); } 
-            else { startProcess('outro'); }
+            else startProcess('outro');
         }
 
         function prevSlide() { if(currentIdx > 0) { currentIdx--; updateSlide(); } }
 
         function startProcess(mode) {
             const layers = { start: document.getElementById('layer-start'), app: document.getElementById('layer-app'), vid: document.getElementById('layer-video'), lock: document.getElementById('layer-lock') };
-
-            // Reset handler
             video.onended = null;
 
             if(mode === 'intro') {
@@ -572,10 +480,8 @@
                 setTimeout(() => {
                     layers.start.style.display = 'none';
                     layers.vid.style.display = 'flex';
-                    video.currentTime = 0;
-                    video.play().then(() => {
-                        setTimeout(() => layers.vid.style.opacity = '1', 50);
-                    });
+                    video.play();
+                    setTimeout(() => layers.vid.style.opacity = '1', 50);
                 }, 600); 
 
                 video.onended = () => {
@@ -587,77 +493,36 @@
                     }, 600);
                 };
             } else {
-                // OUTRO
                 isAppRunning = false;
                 layers.app.style.opacity = '0';
                 setTimeout(() => {
                     layers.app.style.display = 'none';
                     layers.vid.style.display = 'flex';
-                    layers.vid.style.opacity = '0'; // Ensure invisible start
                     video.currentTime = 0;
-                    
-                    video.play().then(() => {
-                        setTimeout(() => layers.vid.style.opacity = '1', 50);
-                    }).catch(e => console.error(e));
-                    
+                    video.play();
+                    setTimeout(() => layers.vid.style.opacity = '1', 50);
                 }, 600);
 
                 video.onended = () => {
-                    // SMOOTHER OUTRO TO LOCK
-                    // 1. Show Lock Layer (opacity 0) OVER Video
                     layers.lock.style.display = 'flex';
-                    layers.lock.style.opacity = '0';
-                    
-                    // 2. Fade in Lock Layer
-                    setTimeout(() => {
-                        layers.lock.style.opacity = '1';
-                    }, 50);
-
-                    // 3. After Lock is fully visible, hide video behind it
+                    setTimeout(() => { layers.lock.style.opacity = '1'; }, 50);
                     setTimeout(() => {
                         layers.vid.style.display = 'none';
-                        layers.vid.style.opacity = '0';
                         isLocked = true;
-                    }, 1000); // Wait for transition + buffer
+                    }, 1000);
                 };
             }
         }
-        window.onload = init;
-
-        // ===== FULLSCREEN TOGGLE (F-TASTE) =====
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'f' || e.key === 'F') {
-                toggleFullscreen();
-            }
-        });
 
         function toggleFullscreen() {
-            const elem = document.documentElement;
-            const isFullscreen = document.fullscreenElement || document.webkitFullscreenElement || 
-                                document.mozFullScreenElement || document.msFullscreenElement;
-            
-            if (isFullscreen) {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                }
-            } else {
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen().catch(err => console.log(`Fullscreen-Fehler: ${err.message}`));
-                } else if (elem.webkitRequestFullscreen) {
-                    elem.webkitRequestFullscreen();
-                } else if (elem.mozRequestFullScreen) {
-                    elem.mozRequestFullScreen();
-                } else if (elem.msRequestFullscreen) {
-                    elem.msRequestFullscreen();
-                }
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else if (document.exitFullscreen) {
+                document.exitFullscreen();
             }
         }
+
+        window.onload = init;
     </script>
 </body>
 </html>
