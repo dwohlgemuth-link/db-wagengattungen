@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <link rel="icon" href="assets/db-logo.svg" type="image/svg+xml">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Wagengattungen Güterverkehr</title>
+    <title>Wagengattungen Güterverkehr - DB Training</title>
     
     <!-- FontAwesome 6 Integration -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -71,7 +70,7 @@
             text-align: center;
         }
 
-        .start-logo { height: 175px; width: auto; }
+        .start-logo { height: 120px; width: auto; margin-bottom: 20px; border: 2px solid var(--db-red); padding: 10px; border-radius: 4px; }
         .start-title { margin: 6px 0 0 0; font-size: 2.3rem; font-weight: 900; color: var(--db-black); letter-spacing: -0.01em; }
         .start-lead { margin: 10px 0 12px 0; color: var(--db-gray-60); font-size: 1.1rem; line-height: 1.5; max-width: 760px; }
 
@@ -79,13 +78,13 @@
             background: var(--db-red);
             color: var(--db-white);
             border: none;
-            padding: 14px 18px;
+            padding: 14px 24px;
             border-radius: 10px;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 800;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             letter-spacing: 0.04em;
             box-shadow: 0 10px 22px rgba(236,0,22,0.24);
             cursor: pointer;
@@ -110,19 +109,19 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 90px;
+            height: 80px;
             background: var(--db-white);
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 50px;
+            padding: 0 40px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 100;
         }
 
         main {
             flex: 1;
-            padding: 130px 60px 40px 60px;
+            padding: 110px 40px 40px 40px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -141,84 +140,92 @@
         /* --- TYPOGRAPHY --- */
         .db-tag {
             display: inline-block;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 800;
             text-transform: uppercase;
             color: var(--db-red);
-            margin-bottom: 1rem;
-            background: var(--db-white);
-            padding: 6px 14px;
+            margin-bottom: 0.75rem;
+            background: var(--db-gray-10);
+            padding: 4px 10px;
             border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        .h1 { font-size: 3.5rem; font-weight: 900; color: var(--db-black); margin: 0 0 1rem 0; line-height: 1.1; }
-        .h2 { font-size: 2.5rem; font-weight: 800; color: var(--db-black); margin: 0 0 1rem 0; }
-        .text-lead { font-size: 1.6rem; font-weight: 300; color: var(--db-gray-60); line-height: 1.5; margin-bottom: 2rem; max-width: 900px; }
+        .h1 { font-size: 3rem; font-weight: 900; color: var(--db-black); margin: 0 0 0.5rem 0; line-height: 1.1; }
+        .h2 { font-size: 2.2rem; font-weight: 800; color: var(--db-black); margin: 0 0 0.5rem 0; }
+        .text-lead { font-size: 1.3rem; font-weight: 400; color: var(--db-gray-60); line-height: 1.4; margin-bottom: 1.5rem; max-width: 900px; }
 
         /* --- SLIDE ELEMENTS --- */
-        .db-grid { display: grid; gap: 1.5rem; width: 100%; }
+        .db-grid { display: grid; gap: 1rem; width: 100%; }
         .cols-4 { grid-template-columns: repeat(4, 1fr); }
+        .cols-3 { grid-template-columns: repeat(3, 1fr); }
 
         .db-card {
             background: var(--db-white);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 4px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
             border-left: 6px solid var(--db-red);
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.25rem;
+            transition: transform 0.3s ease;
         }
+        .db-card:hover { transform: translateY(-5px); }
 
-        .card-code { font-family: monospace; font-size: 2.5rem; font-weight: 900; color: var(--db-red); line-height: 1; }
-        .card-title { font-size: 1.2rem; font-weight: 800; color: var(--db-black); }
-        .card-desc { font-size: 1rem; color: var(--db-gray-60); line-height: 1.4; }
-        .icon-box { font-size: 2rem; color: var(--db-gray-60); margin-bottom: 0.5rem; }
+        .card-code { font-family: "DB Screen Sans", monospace; font-size: 2.2rem; font-weight: 900; color: var(--db-red); line-height: 1; }
+        .card-title { font-size: 1.1rem; font-weight: 800; color: var(--db-black); margin-top: 5px; }
+        .card-type { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; color: var(--db-gray-60); opacity: 0.7; }
+        .card-desc { font-size: 0.85rem; color: var(--db-gray-60); line-height: 1.3; margin-top: 5px; }
+        .icon-box { font-size: 1.8rem; color: var(--db-gray-20); margin-bottom: 0.25rem; }
 
         .comp-wrapper {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
             flex-wrap: wrap;
         }
         .comp-block {
             background: var(--db-black);
             color: white;
-            padding: 1rem 1.5rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 4px;
             text-align: center;
             position: relative;
+            min-width: 100px;
         }
         .comp-block.main { background: var(--db-red); }
-        .comp-letter { font-family: monospace; font-size: 3rem; font-weight: 900; line-height: 1; }
-        .comp-label { font-size: 0.8rem; margin-top: 0.5rem; text-transform: uppercase; font-weight: 700; opacity: 0.8; }
+        .comp-letter { font-family: monospace; font-size: 2.5rem; font-weight: 900; line-height: 1; }
+        .comp-label { font-size: 0.7rem; margin-top: 0.4rem; text-transform: uppercase; font-weight: 700; opacity: 0.8; }
 
         .team-list {
             list-style: none;
             padding: 0;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 1rem;
-            max-width: 800px;
+            max-width: 900px;
             margin-top: 2rem;
         }
         .team-member {
-            font-size: 1.5rem;
+            background: var(--db-white);
+            padding: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--db-black);
             display: flex;
             align-items: center;
             gap: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-radius: 4px;
         }
-        .team-member i { color: var(--db-red); font-size: 1rem; }
+        .team-member i { color: var(--db-red); }
 
         /* --- SLIDE TRANSITIONS --- */
         .slide-content {
             opacity: 0;
-            transform: translateY(30px) scale(0.98); 
+            transform: translateY(20px); 
             transition: opacity var(--transition-slide) var(--ease-modern), 
                         transform var(--transition-slide) var(--ease-modern);
             pointer-events: none;
@@ -229,9 +236,9 @@
             justify-content: center;
             will-change: transform, opacity;
         }
-        .slide-content.active { opacity: 1; transform: translateY(0) scale(1); pointer-events: all; }
+        .slide-content.active { opacity: 1; transform: translateY(0); pointer-events: all; }
 
-        .progress-container { position: fixed; bottom: 0; left: 0; width: 100%; height: 6px; background: var(--db-gray-20); z-index: 60; }
+        .progress-container { position: fixed; bottom: 0; left: 0; width: 100%; height: 4px; background: var(--db-gray-20); z-index: 60; }
         .progress-bar { height: 100%; background: var(--db-red); width: 0%; transition: width 0.6s var(--ease-modern); }
 
         video { width: 100%; height: 100%; object-fit: cover; }
@@ -239,15 +246,34 @@
         /* Legal Slide Styles */
         .legal-box {
             background: var(--db-white);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 4px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            max-width: 900px;
-            border-top: 6px solid var(--db-red);
+            max-width: 1000px;
+            border-top: 4px solid var(--db-red);
         }
-        .legal-text { font-size: 0.95rem; color: var(--db-gray-60); line-height: 1.6; }
+        .legal-text { font-size: 0.9rem; color: var(--db-gray-60); line-height: 1.5; }
         .legal-link { color: var(--db-red); text-decoration: none; font-weight: 700; }
         .legal-link:hover { text-decoration: underline; }
+
+        /* Navigation Hints */
+        .nav-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 40px;
+            font-size: 0.8rem;
+            color: var(--db-gray-60);
+            display: flex;
+            gap: 15px;
+            font-weight: 700;
+        }
+        .key-cap {
+            background: var(--db-white);
+            padding: 2px 6px;
+            border-radius: 3px;
+            border: 1px solid var(--db-gray-20);
+            box-shadow: 0 2px 0 var(--db-gray-20);
+        }
 
     </style>
 </head>
@@ -255,8 +281,9 @@
 
     <!-- START LAYER -->
     <div id="layer-start" class="layer active">
-        <img src="assets/db-fv-edo-logo_1.svg" alt="DB Logo" class="start-logo">
-        <div class="start-title">Wagengattungen Güterverkehr</div>
+        <div class="start-logo" style="display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 2.5rem; color: var(--db-red); font-family: 'DB Screen Sans'">DB</div>
+        <div class="start-title">UIC-Wagengattungen</div>
+        <p class="start-lead">Detaillierte Übersicht der 13 Güterwagengattungen im europäischen Schienenverkehr gemäß UIC-Systematik.</p>
         <button class="start-cta" type="button"><i class="fa-solid fa-play"></i> Präsentation starten</button>
         <div class="start-names">
             Eine Präsentation von<br>
@@ -264,25 +291,31 @@
         </div>
     </div>
 
-    <!-- VIDEO LAYER -->
+    <!-- VIDEO LAYER (Optional Soundlogo) -->
     <div id="layer-video" class="layer">
-        <video id="video-player" playsinline>
-            <source src="assets/db-soundlogo.mp4" type="video/mp4">
-        </video>
+        <div style="color:white; display:flex; align-items:center; justify-content:center; height:100%; font-size:2rem; font-weight:900;">
+            DB Fernverkehr AG Dortmund
+        </div>
     </div>
 
     <!-- APP LAYER -->
     <div id="layer-app" class="layer">
         <header>
-            <div style="height: 55px; display: flex; align-items: center;">
-                <img src="assets/db-fv-edo-logo_2.svg" alt="FV Dortmund Logo" style="height: 100%; width: auto;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="font-weight: 900; font-size: 1.8rem; color: var(--db-red); border: 2px solid var(--db-red); padding: 2px 8px;">DB</div>
+                <div style="font-weight: 800; font-size: 1.1rem; border-left: 2px solid var(--db-gray-20); padding-left: 15px;">Wagengattungen Güterverkehr</div>
             </div>
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--db-gray-60);" id="slide-info">01 / 09</div>
+            <div style="font-size: 1rem; font-weight: 800; color: var(--db-gray-60);" id="slide-info">01 / 13</div>
         </header>
         
         <main>
             <div class="slide-stage" id="slide-stage"></div>
         </main>
+
+        <div class="nav-hint">
+            <span><span class="key-cap">←</span> ZURÜCK</span>
+            <span>WEITER <span class="key-cap">→</span> / <span class="key-cap">SPACE</span></span>
+        </div>
 
         <div class="progress-container">
             <div id="progress-bar" class="progress-bar"></div>
@@ -291,10 +324,15 @@
 
     <!-- LOCK LAYER -->
     <div id="layer-lock" class="layer">
-        <div style="text-align: center; opacity: 0.15;">
-            <p style="font-weight: 800; font-size: 0.8rem; letter-spacing: 0.2em;">
-                MAX • NICO • MALTE • FOX • LENNARD • DAMON
-            </p>
+        <div style="text-align: center;">
+            <i class="fa-solid fa-circle-check" style="font-size: 5rem; color: #2ecc71; margin-bottom: 20px;"></i>
+            <h2 class="h2">Presentation beendet</h2>
+            <p class="text-lead">Vielen Dank für Ihre Aufmerksamkeit.</p>
+            <div style="margin-top: 40px; opacity: 0.3;">
+                <p style="font-weight: 800; font-size: 0.7rem; letter-spacing: 0.3em;">
+                    MAX • NICO • MALTE • FOX • LENNARD • DAMON
+                </p>
+            </div>
         </div>
     </div>
 
@@ -303,57 +341,91 @@
             {
                 type: 'hero',
                 tag: 'Einleitung',
-                title: 'Güterverkehr auf der Schiene',
-                text: 'Einführung in die Systematik der UIC-Gattungsbezeichnungen für Güterwagen. Erfahren Sie, was Buchstaben wie "E", "G" oder "Z" über Bauart und Funktion aussagen.',
+                title: 'Systematik der UIC-Gattungszeichen',
+                text: 'Güterwagen werden international nach einem einheitlichen System gekennzeichnet. Diese Zeichen geben Auskunft über Bauart, Verwendungszweck und technische Parameter.',
                 icon: 'fa-solid fa-train-subway'
             },
             {
                 type: 'team',
                 tag: 'Projektteam',
-                title: 'Mitwirkende & Ersteller',
-                text: 'Diese Präsentation wurde erstellt von:',
+                title: 'Mitwirkende',
+                text: 'Dieses Schulungsmodul wurde im Rahmen der Ausbildung erstellt von:',
                 names: ['Max', 'Nico', 'Malte', 'Fox', 'Lennard', 'Damon']
             },
             {
                 type: 'syntax',
-                tag: 'Systematik',
-                title: 'Die Syntax der Güterwagen',
-                text: 'Jede Bezeichnung beginnt mit einem Hauptzeichen (Großbuchstabe) für die Kategorie, gefolgt von Nebenzeichen (Kleinbuchstaben) für technische Details.',
-                main: 'F',
-                subs: ['a', 'l', 'n', 's']
+                tag: 'Grundlagen',
+                title: 'Haupt- und Nebenzeichen',
+                text: 'Die Gattungsbezeichnung besteht aus einem Großbuchstaben (Hauptzeichen) und einem oder mehreren Kleinbuchstaben (Nebenzeichen).',
+                main: 'H',
+                subs: ['a', 'b', 'b', 'i', 'l', 'l', 's']
             },
             {
                 type: 'grid',
-                tag: 'Standard-Gattungen',
-                title: 'Die Arbeitstiere',
-                text: 'Häufigste Bauarten für klassische Transportaufgaben im Güterverkehr.',
+                tag: 'Regelbauarten (Teil 1)',
+                title: 'Standard-Wagentypen',
+                text: 'Regelbauarten sind universell einsetzbare Wagen ohne spezielle Zusatzeinrichtungen.',
+                cols: 'cols-3',
                 items: [
-                    { c: 'E', t: 'Offene Wagen', d: 'Für wetterunempfindliche Güter wie Kohle, Schrott oder Erze.', i: 'fa-solid fa-dumpster' },
-                    { c: 'G', t: 'Gedeckte Wagen', d: 'Schützen empfindliche Güter in Kisten oder Säcken vor Witterung.', i: 'fa-solid fa-box-archive' },
-                    { c: 'L', t: 'Flachwagen', d: 'Zweiachsige Wagen für Landgut wie Holz oder Stahlträger.', i: 'fa-solid fa-cart-flatbed' },
-                    { c: 'Z', t: 'Kesselwagen', d: 'Spezialbehälter für Flüssigkeiten (Öl, Benzin) oder Gase.', i: 'fa-solid fa-oil-can' }
+                    { c: 'E', t: 'Offene Wagen', type: 'Regelbauart', d: 'Zweiachsige Wagen mit flachem Boden und festen Wänden. Für Kohle, Kies oder Schrott.', i: 'fa-solid fa-dumpster' },
+                    { c: 'G', t: 'Gedeckte Wagen', type: 'Regelbauart', d: 'Zweiachsige Wagen für witterungsempfindliche Güter (Stückgut, Kisten).', i: 'fa-solid fa-box-archive' },
+                    { c: 'K', t: 'Flachwagen', type: 'Regelbauart', d: 'Zweiachsige Wagen mit festen Stirnwänden und Borden. Für Stahl oder Holz.', i: 'fa-solid fa-grip-lines' }
                 ]
             },
             {
                 type: 'grid',
-                tag: 'Sonder-Gattungen',
-                title: 'Spezialisierte Bauarten',
-                text: 'Wagen mit besonderen Lade- oder Entladevorrichtungen für effiziente Logistik.',
+                tag: 'Regelbauarten (Teil 2)',
+                title: 'Flach- & Mehrzweckwagen',
+                text: 'Weitere Standardgattungen für Langgut und Schwerlasten.',
+                cols: 'cols-2',
                 items: [
-                    { c: 'H', t: 'Schiebewandwagen', d: 'Ermöglichen das schnelle Beladen von Paletten mittels Gabelstapler.', i: 'fa-solid fa-warehouse' },
-                    { c: 'S', t: 'Flachwagen (S)', d: 'Vierachsige Drehgestellwagen für schwere Lasten oder Container.', i: 'fa-solid fa-grip-lines' },
-                    { c: 'T', t: 'Schiebedachwagen', d: 'Kombiniert Wetterschutz mit der Möglichkeit der Kranbeladung.', i: 'fa-solid fa-section' },
-                    { c: 'F', t: 'Offene Sonderwagen', d: 'Besitzen meist Vorrichtungen zur automatischen Schüttgutentladung.', i: 'fa-solid fa-mountain' }
+                    { c: 'L', t: 'Spezial-Flachwagen', type: 'Regelbauart', d: 'Zweiachser ohne Borde. Häufig für Fahrzeuge oder Forstprodukte.', i: 'fa-solid fa-car' },
+                    { c: 'R', t: 'Flachwagen (Drehgestell)', type: 'Regelbauart', d: 'Vier- oder mehrachsige Flachwagen mit Rungen für schwerstes Langgut.', i: 'fa-solid fa-bars' }
+                ]
+            },
+            {
+                type: 'grid',
+                tag: 'Sonderbauarten (Teil 1)',
+                title: 'Spezialisierte Bauarten',
+                text: 'Sonderbauarten besitzen spezielle Lade- oder Entladevorrichtungen.',
+                cols: 'cols-3',
+                items: [
+                    { c: 'F', t: 'Offene Sonderwagen', type: 'Sonderbauart', d: 'Meist Selbstentladewagen für Schüttgut (Schotter, Erz).', i: 'fa-solid fa-mountain' },
+                    { c: 'H', t: 'Schiebewandwagen', type: 'Sonderbauart', d: 'Ermöglichen Beladung ganzer Paletten von der Seite.', i: 'fa-solid fa-warehouse' },
+                    { c: 'I', t: 'Kühlwagen', type: 'Sonderbauart', d: 'Isolierte Wagen (oft mit Kühlaggregat) für Lebensmittel.', i: 'fa-solid fa-snowflake' }
+                ]
+            },
+            {
+                type: 'grid',
+                tag: 'Sonderbauarten (Teil 2)',
+                title: 'Hochleistung & Flexibilität',
+                text: 'Wagen für moderne Logistikketten und Intermodal-Verkehr.',
+                cols: 'cols-3',
+                items: [
+                    { c: 'S', t: 'Drehgestell-Flachwagen', type: 'Sonderbauart', d: 'Spezielle Container-Tragwagen oder für Coils/Stahl.', i: 'fa-solid fa-truck-ramp-box' },
+                    { c: 'T', t: 'Schiebedachwagen', type: 'Sonderbauart', d: 'Kombiniert Wetterfestigkeit mit Kranbeladbarkeit von oben.', i: 'fa-solid fa-up-down-left-right' },
+                    { c: 'U', t: 'Sonderwagen', type: 'Sonderbauart', d: 'Alles, was nicht in A-Z passt (z.B. Silowagen für Zement).', i: 'fa-solid fa-gears' }
+                ]
+            },
+            {
+                type: 'grid',
+                tag: 'Sonderbauarten (Teil 3)',
+                title: 'Gefahrgut & Service',
+                text: 'Spezialbehälter und fahrzeuginterne Zwecke.',
+                cols: 'cols-2',
+                items: [
+                    { c: 'Z', t: 'Kesselwagen', type: 'Sonderbauart', d: 'Zylindrische Behälter für flüssige oder gasförmige Stoffe.', i: 'fa-solid fa-oil-can' },
+                    { c: 'V', t: 'Dienstwagen', type: 'Sonderbauart', d: 'Wagen für bahneigene Zwecke (Materiallager, Service).', i: 'fa-solid fa-wrench' }
                 ]
             },
             {
                 type: 'analyze',
-                tag: 'Analyse-Beispiel',
-                title: 'Beispiel: Falns',
-                text: 'Ein moderner Schüttgutwagen für den Erztransport.',
+                tag: 'Praxis-Check',
+                title: 'Analyse: Falns',
+                text: 'Die Kombination der Zeichen ergibt das exakte Einsatzprofil des Wagens.',
                 parts: [
                     { l: 'F', d: 'Offen (Sonder)', type: 'main' },
-                    { l: 'a', d: 'Drehgestell (4 Achsen)', type: 'sub' },
+                    { l: 'a', d: '4 Achsen (Drehgestell)', type: 'sub' },
                     { l: 'l', d: 'Schwerkraftentladung', type: 'sub' },
                     { l: 'n', d: 'Last > 60t', type: 'sub' },
                     { l: 's', d: 'Vmax 100 km/h', type: 'sub' }
@@ -361,22 +433,22 @@
             },
             {
                 type: 'hero',
-                tag: 'Praxis-Tipp',
-                title: 'Infos am Langträger',
-                text: 'Sämtliche Gattungszeichen, Lastgrenzen und technische Prüfdaten sind direkt am Langträger des Wagens aufgedruckt.',
+                tag: 'Tipp für die Praxis',
+                title: 'Das Anschriftenfeld',
+                text: 'Sämtliche Daten findest du am Langträger: Gattungszeichen, Wagennummer, Lastgrenzenraster und Bremsgewichte.',
                 icon: 'fa-solid fa-magnifying-glass-chart'
             },
             {
                 type: 'legal',
                 tag: 'Information',
                 title: 'Quellen & Rechtliches',
-                text: 'Wichtige Hinweise zur Nutzung dieser Präsentation.'
+                text: 'Inhalte wurden sorgfältig geprüft und basieren auf aktuellen UIC-Standards.'
             },
             {
                 type: 'hero',
-                tag: 'Zusammenfassung',
-                title: 'Ende der Präsentation',
-                text: 'Vielen Dank für Ihre Aufmerksamkeit. Drücken Sie "Weiter", um das Modul abzuschließen.',
+                tag: 'Abschluss',
+                title: 'Vielen Dank!',
+                text: 'Wir hoffen, diese Übersicht hilft Ihnen in der täglichen Betriebspraxis. Sie können die Präsentation nun schließen.',
                 icon: 'fa-solid fa-check-double'
             }
         ];
@@ -384,7 +456,6 @@
         let currentIdx = 0;
         let isAppRunning = false;
         let isLocked = false;
-        const video = document.getElementById('video-player');
 
         function init() {
             renderSlides();
@@ -393,14 +464,11 @@
             document.getElementById('layer-start').addEventListener('click', () => startProcess('intro'));
             
             document.addEventListener('keydown', e => {
-                if (!isAppRunning && !isLocked && document.getElementById('layer-start').style.display !== 'none') {
-                    if (e.code === 'Space' || e.code === 'ArrowRight' || e.code === 'Enter') startProcess('intro');
-                    return;
-                }
-                if (isAppRunning && !isLocked) {
+                if (!isAppRunning && !isLocked) {
+                    if (e.code === 'Space' || e.code === 'Enter') startProcess('intro');
+                } else if (isAppRunning && !isLocked) {
                     if (e.code === 'ArrowRight' || e.code === 'Space' || e.code === 'Enter') nextSlide();
                     if (e.code === 'ArrowLeft') prevSlide();
-                    if (e.key === 'f' || e.key === 'F') toggleFullscreen();
                 }
             });
 
@@ -416,23 +484,24 @@
             stage.innerHTML = slides.map((s, i) => {
                 let html = '';
                 if(s.type === 'hero') {
-                    html = `<div class="db-tag">${s.tag}</div><h1 class="h1">${s.title}</h1><p class="text-lead">${s.text}</p><i class="${s.icon}" style="font-size: 6rem; color: var(--db-gray-20); margin-top: 1rem;"></i>`;
+                    html = `<div class="db-tag">${s.tag}</div><h1 class="h1">${s.title}</h1><p class="text-lead">${s.text}</p><i class="${s.icon}" style="font-size: 8rem; color: var(--db-gray-20); margin-top: 2rem;"></i>`;
                 } else if(s.type === 'grid') {
-                    html = `<div class="db-tag">${s.tag}</div><h2 class="h2">${s.title}</h2><p class="text-lead" style="font-size: 1.1rem; margin-bottom: 1.5rem;">${s.text}</p><div class="db-grid cols-4">${s.items.map(it => `<div class="db-card"><div class="icon-box"><i class="${it.i}"></i></div><div class="card-code">${it.c}</div><div class="card-title">${it.t}</div><div class="card-desc">${it.d}</div></div>`).join('')}</div>`;
+                    html = `<div class="db-tag">${s.tag}</div><h2 class="h2">${s.title}</h2><p class="text-lead" style="font-size: 1.1rem; margin-bottom: 1.5rem;">${s.text}</p><div class="db-grid ${s.cols}">${s.items.map(it => `<div class="db-card"><div class="icon-box"><i class="${it.i}"></i></div><div class="card-type">${it.type}</div><div class="card-code">${it.c}</div><div class="card-title">${it.t}</div><div class="card-desc">${it.d}</div></div>`).join('')}</div>`;
                 } else if(s.type === 'team') {
-                    html = `<div class="db-tag">${s.tag}</div><h2 class="h2">${s.title}</h2><p class="text-lead">${s.text}</p><div class="team-list">${s.names.map(m => `<div class="team-member"><i class="fa-solid fa-user"></i> ${m}</div>`).join('')}</div>`;
+                    html = `<div class="db-tag">${s.tag}</div><h2 class="h2">${s.title}</h2><p class="text-lead">${s.text}</p><div class="team-list">${s.names.map(m => `<div class="team-member"><i class="fa-solid fa-user-gear"></i> ${m}</div>`).join('')}</div>`;
                 } else if(s.type === 'syntax') {
                     html = `<div class="db-tag">${s.tag}</div><h2 class="h2">${s.title}</h2><p class="text-lead">${s.text}</p>
                             <div class="comp-wrapper">
                                 <div class="comp-block main"><div class="comp-letter">${s.main}</div><div class="comp-label">Hauptzeichen</div></div>
-                                <div style="font-size:2rem; color:var(--db-gray-60);">+</div>
-                                ${s.subs.map(sub => `<div class="comp-block"><div class="comp-letter">${sub}</div><div class="comp-label">Nebenzeichen</div></div>`).join('')}
-                            </div>`;
+                                <div style="font-size:3rem; color:var(--db-gray-20);">+</div>
+                                ${s.subs.map(sub => `<div class="comp-block"><div class="comp-letter" style="font-size:1.8rem;">${sub}</div><div class="comp-label">Neben-Z.</div></div>`).join('')}
+                            </div>
+                            <p style="text-align:center; color: var(--db-gray-60); font-weight:700;">Beispiel: Habbills (Gedeckter Sonderwagen mit Schiebewänden)</p>`;
                 } else if(s.type === 'analyze') {
                     html = `<div class="db-tag">${s.tag}</div><h2 class="h2">${s.title}</h2><p class="text-lead" style="margin-bottom:2rem;">${s.text}</p>
-                            <div class="comp-wrapper" style="justify-content: flex-start;">
+                            <div class="comp-wrapper" style="justify-content: center;">
                                 ${s.parts.map(p => `
-                                    <div class="comp-block ${p.type === 'main' ? 'main' : ''}" style="min-width:120px;">
+                                    <div class="comp-block ${p.type === 'main' ? 'main' : ''}" style="min-width:140px;">
                                         <div class="comp-letter">${p.l}</div>
                                         <div class="comp-label" style="font-size:0.7rem; margin-top:5px; opacity:1;">${p.d}</div>
                                     </div>
@@ -445,12 +514,12 @@
                         <div class="legal-box">
                             <div class="legal-text">
                                 <strong>Quellenverzeichnis:</strong><br>
-                                Die inhaltlichen Grundlagen dieser Präsentation basieren auf der offiziellen Systematik der UIC-Gattungszeichen.<br>
-                                Hauptquelle: <a href="https://de.wikipedia.org/wiki/Gattungszeichen_deutscher_Eisenbahnwagen" class="legal-link" target="_blank">Wikipedia - Gattungszeichen deutscher Eisenbahnwagen</a><br><br>
+                                Die inhaltlichen Grundlagen basieren auf den UIC-Kodizes und der gültigen AVV (Allgemeiner Vertrag für die Verwendung von Güterwagen).<br>
+                                Hauptquelle: <a href="https://kuemmling.eu/gueterwagengattungen.htm#Z" class="legal-link" target="_blank">kuemmling.eu - Güterwagengattungen</a> & <a href="https://de.wikipedia.org/wiki/Gattungszeichen_deutscher_Eisenbahnwagen" class="legal-link" target="_blank">Wikipedia</a><br><br>
                                 <strong>Rechtliche Hinweise:</strong><br>
-                                Sämtliche verwendeten Marken, Logos und Medien (wie das DB-Logo oder Schriftarten) verbleiben im Eigentum der jeweiligen Rechteinhaber. Diese Präsentation wurde zu Bildungszwecken erstellt.<br><br>
-                                <strong>Nutzungsrecht:</strong><br>
-                                Diese Datei ist ausschließlich für den <strong>privaten Gebrauch</strong> und interne Präsentationszwecke geeignet. Eine kommerzielle Nutzung oder öffentliche Verbreitung ist nicht gestattet.
+                                Markenlogos (DB) dienen nur der Visualisierung im Rahmen eines fiktiven Lernmoduls. Alle Rechte verbleiben beim Eigentümer.<br><br>
+                                <strong>Lizenz:</strong><br>
+                                Ausschließlich für interne Ausbildungszwecke. Vervielfältigung nur nach Rücksprache mit der Projektgruppe.
                             </div>
                         </div>`;
                 }
@@ -473,52 +542,22 @@
 
         function startProcess(mode) {
             const layers = { start: document.getElementById('layer-start'), app: document.getElementById('layer-app'), vid: document.getElementById('layer-video'), lock: document.getElementById('layer-lock') };
-            video.onended = null;
 
             if(mode === 'intro') {
                 layers.start.style.opacity = '0';
                 setTimeout(() => {
                     layers.start.style.display = 'none';
-                    layers.vid.style.display = 'flex';
-                    video.play();
-                    setTimeout(() => layers.vid.style.opacity = '1', 50);
+                    layers.app.style.display = 'flex';
+                    setTimeout(() => { layers.app.style.opacity = '1'; isAppRunning = true; }, 50);
                 }, 600); 
-
-                video.onended = () => {
-                    layers.vid.style.opacity = '0';
-                    setTimeout(() => {
-                        layers.vid.style.display = 'none';
-                        layers.app.style.display = 'flex';
-                        setTimeout(() => { layers.app.style.opacity = '1'; isAppRunning = true; }, 50);
-                    }, 600);
-                };
             } else {
                 isAppRunning = false;
                 layers.app.style.opacity = '0';
                 setTimeout(() => {
                     layers.app.style.display = 'none';
-                    layers.vid.style.display = 'flex';
-                    video.currentTime = 0;
-                    video.play();
-                    setTimeout(() => layers.vid.style.opacity = '1', 50);
-                }, 600);
-
-                video.onended = () => {
                     layers.lock.style.display = 'flex';
-                    setTimeout(() => { layers.lock.style.opacity = '1'; }, 50);
-                    setTimeout(() => {
-                        layers.vid.style.display = 'none';
-                        isLocked = true;
-                    }, 1000);
-                };
-            }
-        }
-
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen();
-            } else if (document.exitFullscreen) {
-                document.exitFullscreen();
+                    setTimeout(() => { layers.lock.style.opacity = '1'; isLocked = true; }, 50);
+                }, 600);
             }
         }
 
