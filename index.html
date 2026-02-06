@@ -164,7 +164,7 @@
 
         .db-card {
             background: var(--db-white);
-            padding: 2rem;
+            padding: 1.8rem;
             border-radius: 4px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
             border-left: 6px solid var(--db-red);
@@ -173,11 +173,11 @@
             gap: 0.5rem;
         }
 
-        .card-code { font-family: monospace; font-size: 2.5rem; font-weight: 900; color: var(--db-red); line-height: 1; }
-        .card-title { font-size: 1.2rem; font-weight: 800; color: var(--db-black); }
+        .card-code { font-family: monospace; font-size: 2.2rem; font-weight: 900; color: var(--db-red); line-height: 1; }
+        .card-title { font-size: 1.1rem; font-weight: 800; color: var(--db-black); }
         .card-type { font-size: 0.75rem; font-weight: 800; color: var(--db-gray-60); text-transform: uppercase; opacity: 0.6; }
-        .card-desc { font-size: 1rem; color: var(--db-gray-60); line-height: 1.4; }
-        .icon-box { font-size: 2rem; color: var(--db-gray-60); margin-bottom: 0.5rem; }
+        .card-desc { font-size: 0.95rem; color: var(--db-gray-60); line-height: 1.4; }
+        .icon-box { font-size: 1.8rem; color: var(--db-gray-60); margin-bottom: 0.5rem; }
 
         .comp-wrapper {
             display: flex;
@@ -280,7 +280,7 @@
             <div style="height: 55px; display: flex; align-items: center;">
                 <img src="assets/db-fv-edo-logo_2.svg" alt="FV Dortmund Logo" style="height: 100%; width: auto;">
             </div>
-            <div style="font-size: 1.2rem; font-weight: 800; color: var(--db-gray-60);" id="slide-info">01 / 12</div>
+            <div style="font-size: 1.2rem; font-weight: 800; color: var(--db-gray-60);" id="slide-info">01 / 11</div>
         </header>
         
         <main>
@@ -327,60 +327,51 @@
             },
             {
                 type: 'grid',
-                tag: 'Regelbauarten (Teil 1)',
-                title: 'Standard-Wagentypen',
-                text: 'Regelbauarten sind universell einsetzbare Wagen ohne spezielle Zusatzeinrichtungen.',
-                cols: 'cols-3',
+                tag: 'Kategorien A-H',
+                title: 'Offene & Gedeckte Wagen',
+                text: 'Von klassischen offenen Wagen bis zu spezialisierten Gedeckten.',
+                cols: 'cols-4',
                 items: [
-                    { c: 'E', t: 'Offene Wagen', type: 'Regelbauart', d: 'Zweiachsige Wagen mit flachem Boden und festen Wänden. Für Kohle, Kies oder Schrott.', i: 'fa-solid fa-dumpster' },
-                    { c: 'G', t: 'Gedeckte Wagen', type: 'Regelbauart', d: 'Zweiachsige Wagen für witterungsempfindliche Güter (Stückgut, Kisten).', i: 'fa-solid fa-box-archive' },
-                    { c: 'K', t: 'Flachwagen', type: 'Regelbauart', d: 'Zweiachsige Wagen mit festen Stirnwänden und Borden. Für Stahl oder Holz.', i: 'fa-solid fa-grip-lines' }
+                    { c: 'E', t: 'Offener Wagen (Regel)', type: 'Regelbauart', d: 'Kippfähig, flacher Boden, feste Wände (z.B. für Kohle, Schrott).', i: 'fa-solid fa-dumpster' },
+                    { c: 'F', t: 'Offener Wagen (Sonder)', type: 'Sonderbauart', d: 'Wie E, aber oft als Selbstentladewagen (z.B. Erz, Schotter).', i: 'fa-solid fa-mountain' },
+                    { c: 'G', t: 'Gedeckter Wagen (Regel)', type: 'Regelbauart', d: 'Geschlossener Wagen für witterungsempfindliche Güter.', i: 'fa-solid fa-box-archive' },
+                    { c: 'H', t: 'Gedeckter Wagen (Sonder)', type: 'Sonderbauart', d: 'Oft Schiebewandwagen für schnelle Palettenbeladung.', i: 'fa-solid fa-warehouse' }
                 ]
             },
             {
                 type: 'grid',
-                tag: 'Regelbauarten (Teil 2)',
-                title: 'Flach- & Mehrzweckwagen',
-                text: 'Weitere Standardgattungen für Langgut und Schwerlasten.',
+                tag: 'Kategorien I-O',
+                title: 'Spezial, Flach & Mischbauarten',
+                text: 'Wagen für Temperaturgeführtes, Einzelachsen und gemischte Nutzung.',
+                cols: 'cols-4',
+                items: [
+                    { c: 'I', t: 'Kühlwagen', type: 'Sonderbauart', d: 'Wärmegedämmt, oft mit Kühlaggregat (z.B. Lebensmittel).', i: 'fa-solid fa-snowflake' },
+                    { c: 'K', t: 'Flachwagen (Regel)', type: 'Regelbauart', d: '2 Achsen, mit Rungen/Borden (z.B. Baustoffe, Maschinen).', i: 'fa-solid fa-grip-lines' },
+                    { c: 'L', t: 'Flachwagen (Sonder)', type: 'Sonderbauart', d: 'Einzelachsen, Spezialaufbau (z.B. Container, Autotransport).', i: 'fa-solid fa-car' },
+                    { c: 'O', t: 'Gemischter Wagen', type: 'Sonderbauart', d: 'Zwei-/dreiachsig, Mischung aus Flach- und offenem Wagen.', i: 'fa-solid fa-layer-group' }
+                ]
+            },
+            {
+                type: 'grid',
+                tag: 'Kategorien R-T',
+                title: 'Drehgestell & Dach',
+                text: 'Schwerlastfähige Drehgestellwagen und öffnungsfähige Dächer.',
+                cols: 'cols-3',
+                items: [
+                    { c: 'R', t: 'Flachwagen (Regel)', type: 'Regelbauart', d: 'Drehgestelle (4+ Achsen), Rungen, für langes/schweres Gut.', i: 'fa-solid fa-bars' },
+                    { c: 'S', t: 'Flachwagen (Sonder)', type: 'Sonderbauart', d: 'Drehgestelle, z.B. für Coils oder als Containertragwagen.', i: 'fa-solid fa-truck-ramp-box' },
+                    { c: 'T', t: 'Wagen mit öffn. Dach', type: 'Sonderbauart', d: 'Beladung per Kran von oben, Schutz wie G-Wagen.', i: 'fa-solid fa-up-down-left-right' }
+                ]
+            },
+            {
+                type: 'grid',
+                tag: 'Kategorien U-Z',
+                title: 'Spezial & Kessel',
+                text: 'Sonderzwecke und Flüssigkeitstransporte.',
                 cols: 'cols-2',
                 items: [
-                    { c: 'L', t: 'Spezial-Flachwagen', type: 'Regelbauart', d: 'Zweiachser ohne Borde. Häufig für Fahrzeuge oder Forstprodukte.', i: 'fa-solid fa-car' },
-                    { c: 'R', t: 'Flachwagen (Drehgestell)', type: 'Regelbauart', d: 'Vier- oder mehrachsige Flachwagen mit Rungen für schwerstes Langgut.', i: 'fa-solid fa-bars' }
-                ]
-            },
-            {
-                type: 'grid',
-                tag: 'Sonderbauarten (Teil 1)',
-                title: 'Spezialisierte Bauarten',
-                text: 'Sonderbauarten besitzen spezielle Lade- oder Entladevorrichtungen.',
-                cols: 'cols-3',
-                items: [
-                    { c: 'F', t: 'Offene Sonderwagen', type: 'Sonderbauart', d: 'Meist Selbstentladewagen für Schüttgut (Schotter, Erz).', i: 'fa-solid fa-mountain' },
-                    { c: 'H', t: 'Schiebewandwagen', type: 'Sonderbauart', d: 'Ermöglichen Beladung ganzer Paletten von der Seite.', i: 'fa-solid fa-warehouse' },
-                    { c: 'I', t: 'Kühlwagen', type: 'Sonderbauart', d: 'Isolierte Wagen (oft mit Kühlaggregat) für Lebensmittel.', i: 'fa-solid fa-snowflake' }
-                ]
-            },
-            {
-                type: 'grid',
-                tag: 'Sonderbauarten (Teil 2)',
-                title: 'Hochleistung & Flexibilität',
-                text: 'Wagen für moderne Logistikketten und Intermodal-Verkehr.',
-                cols: 'cols-3',
-                items: [
-                    { c: 'S', t: 'Drehgestell-Flachwagen', type: 'Sonderbauart', d: 'Spezielle Container-Tragwagen oder für Coils/Stahl.', i: 'fa-solid fa-truck-ramp-box' },
-                    { c: 'T', t: 'Schiebedachwagen', type: 'Sonderbauart', d: 'Kombiniert Wetterfestigkeit mit Kranbeladbarkeit von oben.', i: 'fa-solid fa-up-down-left-right' },
-                    { c: 'U', t: 'Sonderwagen', type: 'Sonderbauart', d: 'Alles, was nicht in A-Z passt (z.B. Silowagen für Zement).', i: 'fa-solid fa-gears' }
-                ]
-            },
-            {
-                type: 'grid',
-                tag: 'Sonderbauarten (Teil 3)',
-                title: 'Gefahrgut & Service',
-                text: 'Spezialbehälter und fahrzeuginterne Zwecke.',
-                cols: 'cols-2',
-                items: [
-                    { c: 'Z', t: 'Kesselwagen', type: 'Sonderbauart', d: 'Zylindrische Behälter für flüssige oder gasförmige Stoffe.', i: 'fa-solid fa-oil-can' },
-                    { c: 'V', t: 'Dienstwagen', type: 'Sonderbauart', d: 'Wagen für bahneigene Zwecke (Materiallager, Service).', i: 'fa-solid fa-wrench' }
+                    { c: 'U', t: 'Spezialgüterwagen', type: 'Sonderbauart', d: 'Alles, was nicht sonst passt (z.B. Zement-Silowagen, Tieflader).', i: 'fa-solid fa-gears' },
+                    { c: 'Z', t: 'Kesselwagen', type: 'Sonderbauart', d: 'Für Flüssigkeiten und Gase (z.B. Öl, Chemie).', i: 'fa-solid fa-oil-can' }
                 ]
             },
             {
