@@ -22,6 +22,7 @@
 
             /* Animationen */
             --ease-modern: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
             --transition-layer: 0.8s;
             --transition-slide: 0.8s; 
         }
@@ -57,7 +58,7 @@
         #layer-start { z-index: 100; background: var(--db-white); align-items: center; justify-content: center; cursor: pointer; }
         #layer-video { z-index: 110; background: #000; }
         #layer-app   { z-index: 50; background: var(--db-gray-10); position: relative; }
-        #layer-lock  { z-index: 200; background: var(--db-white); align-items: center; justify-content: center; pointer-events: all; cursor: default; }
+        #layer-lock  { z-index: 200; background: var(--db-white); align-items: center; justify-content: center; pointer-events: all; cursor: default; overflow: hidden; }
 
         /* Start Layer Styling */
         #layer-start {
@@ -252,6 +253,121 @@
         .legal-link { color: var(--db-red); text-decoration: none; font-weight: 700; }
         .legal-link:hover { text-decoration: underline; }
 
+        /* --- PROFESSIONAL OUTRO STYLES --- */
+        #final-overlay {
+            position: fixed;
+            inset: 0;
+            background: var(--db-white);
+            z-index: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+            pointer-events: none;
+        }
+        
+        .final-logo {
+            width: 280px;
+            height: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease 0.3s;
+        }
+
+        #track-stage {
+            position: relative;
+            width: 100%; 
+            height: 180px; 
+            margin: 10px auto 0 auto;
+            opacity: 0;
+            transition: opacity 1s ease;
+            overflow: hidden; 
+        }
+        
+        .track-line {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--db-black);
+            z-index: 5;
+            /* Schwellen */
+            background-image: repeating-linear-gradient(90deg, 
+                var(--db-gray-60) 0, 
+                var(--db-gray-60) 8px, 
+                transparent 8px, 
+                transparent 25px
+            );
+            background-size: 100% 12px;
+            background-repeat: no-repeat;
+            background-position: bottom -4px; 
+            padding-bottom: 12px; 
+        }
+
+        /* --- BR 101 + IC WAGEN STYLING (SVG BASED) --- */
+        .loco-train {
+            position: absolute;
+            bottom: 34px; 
+            left: 50%; 
+            /* Breite des gesamten Zuges (Lok + 2 Wagen) */
+            /* Lok (280) + Kupplung (10) + Wagen (320) + Kupplung (10) + Wagen (320) = ca 940 */
+            margin-left: -470px; 
+            width: 940px; 
+            height: 100px;
+            
+            /* STARTZUSTAND: Links weit außerhalb */
+            transform: translateX(-200vw); 
+            
+            z-index: 20;
+            display: flex;
+            align-items: flex-end;
+            filter: drop-shadow(3px 3px 8px rgba(0,0,0,0.2));
+            will-change: transform;
+        }
+
+        /* Animations-Klassen */
+        
+        /* 1. Zustand: Einfahrt (Mitte) */
+        .train-enter {
+            transition: transform 4.5s cubic-bezier(0.2, 0.8, 0.2, 1); /* Etwas länger für längeren Zug */
+            transform: translateX(0) !important; 
+        }
+
+        /* 2. Zustand: Ausfahrt (Rechts raus) */
+        .train-depart {
+            transition: transform 2.5s cubic-bezier(0.6, 0, 0.9, 1); /* Schnelles Anfahren */
+            transform: translateX(200vw) !important; /* Raus nach rechts */
+        }
+
+        /* Namen einsteigen */
+        .board-train {
+            transition: all 0.8s ease-in;
+            opacity: 0 !important;
+            transform: translateY(40px) scale(0.9) !important; /* Nach unten in den Zug */
+        }
+
+        .name-container {
+            font-weight: 800; 
+            font-size: 1.1rem; 
+            letter-spacing: 0.1em; 
+            color: var(--db-black); 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 10;
+            margin-bottom: 20px;
+        }
+        
+        .name-item { 
+            position: relative; 
+            transition: opacity 0.5s; 
+            display: inline-block;
+        }
+
     </style>
 </head>
 <body>
@@ -292,12 +408,160 @@
         </div>
     </div>
 
-    <!-- LOCK LAYER -->
+    <!-- LOCK LAYER (OUTRO) -->
     <div id="layer-lock" class="layer">
-        <div style="text-align: center; opacity: 0.15;">
-            <p style="font-weight: 800; font-size: 0.8rem; letter-spacing: 0.2em;">
-                MAX • NICO • MALTE • FOX • LENNARD • DAMON
-            </p>
+        <!-- Container für Inhalt -->
+        <div id="lock-content" style="text-align: center; width: 100%;">
+            
+            <!-- Namen Container -->
+            <div class="name-container">
+                <span class="name-item">MAX</span>
+                <span class="name-item">•</span>
+                <span class="name-item">NICO</span>
+                <span class="name-item">•</span>
+                <span class="name-item">MALTE</span>
+                <span class="name-item">•</span>
+                <span class="name-item">FOX</span>
+                <span class="name-item">•</span>
+                <span class="name-item">LENNARD</span>
+                <span class="name-item">•</span>
+                <span class="name-item">DAMON</span>
+            </div>
+
+            <!-- Animationsbühne -->
+            <div id="track-stage">
+                <!-- Track Line -->
+                <div class="track-line"></div>
+
+                <!-- IC Train Complex (2 Wagen + BR 101) -->
+                <div id="loco-train" class="loco-train">
+                    <svg width="100%" height="100%" viewBox="0 0 940 100" preserveAspectRatio="xMidYMax">
+                        <defs>
+                            <!-- Farbdefinitionen -->
+                            <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="windowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+                            </linearGradient>
+                            
+                            <!-- Radsatz -->
+                            <g id="bogie">
+                                <rect x="0" y="5" width="50" height="15" rx="2" fill="#222" />
+                                <circle cx="12" cy="15" r="7" fill="#333" stroke="#555" stroke-width="2" />
+                                <circle cx="38" cy="15" r="7" fill="#333" stroke="#555" stroke-width="2" />
+                            </g>
+
+                            <!-- IC WAGEN DEFINITION (Bpmz) -->
+                            <g id="ic-wagon">
+                                <!-- Kasten -->
+                                <rect x="0" y="15" width="310" height="65" rx="2" fill="url(#bodyGradient)" />
+                                <!-- Dach -->
+                                <path d="M 0,15 L 310,15 L 305,5 L 5,5 Z" fill="#777" />
+                                <!-- Roter Streifen -->
+                                <rect x="0" y="65" width="310" height="6" fill="#ec0016" />
+                                <!-- Fensterband (Dunkelgrau hinterlegt) -->
+                                <rect x="0" y="28" width="310" height="22" fill="#dcdcdc" opacity="0.3" />
+                                <!-- Einzelne Fenster -->
+                                <rect x="35" y="30" width="35" height="18" fill="url(#windowGradient)" rx="1" />
+                                <rect x="75" y="30" width="35" height="18" fill="url(#windowGradient)" rx="1" />
+                                <rect x="115" y="30" width="35" height="18" fill="url(#windowGradient)" rx="1" />
+                                <rect x="155" y="30" width="35" height="18" fill="url(#windowGradient)" rx="1" />
+                                <rect x="195" y="30" width="35" height="18" fill="url(#windowGradient)" rx="1" />
+                                <rect x="235" y="30" width="35" height="18" fill="url(#windowGradient)" rx="1" />
+                                <!-- Türen -->
+                                <rect x="5" y="18" width="20" height="58" fill="none" stroke="#ccc" stroke-width="1" rx="1" />
+                                <rect x="10" y="25" width="10" height="25" fill="#222" rx="1" />
+                                <rect x="285" y="18" width="20" height="58" fill="none" stroke="#ccc" stroke-width="1" rx="1" />
+                                <rect x="290" y="25" width="10" height="25" fill="#222" rx="1" />
+                                <!-- Drehgestelle -->
+                                <use href="#bogie" x="30" y="70" />
+                                <use href="#bogie" x="230" y="70" />
+                                <!-- Faltenbalg -->
+                                <rect x="310" y="25" width="8" height="45" fill="#333" />
+                            </g>
+                        </defs>
+
+                        <!-- ZUG ZUSAMMENSTELLUNG: Wagen 2 - Wagen 1 - Lok -->
+                        
+                        <!-- Wagen 2 (Hinten) -->
+                        <g transform="translate(0, 10)">
+                            <use href="#ic-wagon" />
+                            <!-- 2. Klasse Text -->
+                            <text x="155" y="26" font-family="Arial" font-size="8" fill="#555" text-anchor="middle">2</text>
+                        </g>
+
+                        <!-- Wagen 1 (Mitte) -->
+                        <g transform="translate(318, 10)">
+                            <use href="#ic-wagon" />
+                            <!-- 1. Klasse Text (Streifen oben) -->
+                            <rect x="0" y="13" width="310" height="2" fill="#ec0016" />
+                            <text x="155" y="26" font-family="Arial" font-size="8" fill="#555" text-anchor="middle">1</text>
+                        </g>
+
+                        <!-- BR 101 LOKOMOTIVE (Rechts, ziehend) -->
+                        <g transform="translate(636, 10)"> <!-- Position nach 2 Wagen -->
+                            <!-- Puffer -->
+                            <rect x="0" y="72" width="10" height="5" fill="#111" />
+                            <rect x="270" y="72" width="10" height="5" fill="#111" /> <!-- Lok ist etwas kürzer als Wagen -->
+
+                            <!-- Wagenkasten Form -->
+                            <path d="M 10,80 L 270,80 L 275,50 L 270,20 L 250,15 L 30,15 L 10,20 L 5,50 Z" fill="url(#bodyGradient)" />
+                            
+                            <!-- Rahmen unten -->
+                            <path d="M 15,80 L 265,80 L 260,90 L 20,90 Z" fill="#282D37" />
+
+                            <!-- Dachaufbauten -->
+                            <rect x="40" y="10" width="200" height="5" fill="#999" />
+
+                            <!-- Frontscheiben (IC mod Style) -->
+                            <path d="M 8,50 L 13,28 L 40,28 L 40,50 Z" fill="#1a1a1a" /> <!-- Hinten -->
+                            <path d="M 272,50 L 267,28 L 240,28 L 240,50 Z" fill="#1a1a1a" /> <!-- Vorne -->
+                            
+                            <!-- Seitenfenster / Tür -->
+                            <rect x="50" y="28" width="18" height="25" fill="#1a1a1a" rx="1" />
+                            <rect x="212" y="28" width="18" height="25" fill="#1a1a1a" rx="1" />
+                            
+                            <!-- Lüftergitter -->
+                            <rect x="80" y="25" width="120" height="15" fill="none" stroke="#ccc" stroke-width="1" />
+                            <line x1="80" y1="32" x2="200" y2="32" stroke="#ccc" stroke-width="1" />
+
+                            <!-- Roter Streifen (IC Style) -->
+                            <rect x="10" y="65" width="260" height="6" fill="#ec0016" />
+
+                            <!-- DB Logo -->
+                            <text x="140" y="60" font-family="sans-serif" font-weight="900" font-size="14" fill="#ec0016" text-anchor="middle">DB</text>
+                            <text x="140" y="75" font-family="monospace" font-weight="bold" font-size="7" fill="#666" text-anchor="middle">101 112-1</text>
+
+                            <!-- Stromabnehmer (Pantos) -->
+                            <g transform="translate(50, -25)">
+                                <path d="M 0,40 L 15,20 L 30,40" stroke="#333" stroke-width="2" fill="none"/>
+                                <rect x="5" y="18" width="35" height="2" fill="#111" />
+                            </g>
+                            <g transform="translate(190, -25)">
+                                <path d="M 30,40 L 15,20 L 0,40" stroke="#333" stroke-width="2" fill="none"/>
+                                <rect x="-5" y="18" width="35" height="2" fill="#111" />
+                            </g>
+
+                            <!-- Drehgestelle -->
+                            <use href="#bogie" x="40" y="75" />
+                            <use href="#bogie" x="190" y="75" />
+                            
+                            <!-- Spitzenlicht (3-Licht) rechts -->
+                            <circle cx="265" cy="60" r="2" fill="#fff" />
+                            <circle cx="255" cy="60" r="2" fill="#fff" />
+                            <circle cx="260" cy="40" r="2" fill="#fff" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Final Overlay -->
+        <div id="final-overlay">
+            <img src="assets/db-fv-edo-logo_1.svg" alt="DB Logo" class="final-logo" id="final-logo">
         </div>
     </div>
 
@@ -314,7 +578,7 @@
                 type: 'team',
                 tag: 'Projektteam',
                 title: 'Mitwirkende',
-                text: 'Diese Präsentation wurde im Rahmen der Ausbildung innerhalb der Berufsschule erstellt von:',
+                text: 'Dieses Schulungsmodul wurde im Rahmen der Ausbildung erstellt von:',
                 names: ['Max', 'Nico', 'Malte', 'Fox', 'Lennard', 'Damon']
             },
             {
@@ -404,7 +668,7 @@
                 type: 'hero',
                 tag: 'Abschluss',
                 title: 'Ende der Präsentation',
-                text: 'Vielen Dank für Ihre Aufmerksamkeit.',
+                text: 'Vielen Dank für Ihre Aufmerksamkeit. Drücken Sie "Weiter", um das Modul abzuschließen.',
                 icon: 'fa-solid fa-check-double'
             }
         ];
@@ -421,6 +685,12 @@
             document.getElementById('layer-start').addEventListener('click', () => startProcess('intro'));
             
             document.addEventListener('keydown', e => {
+                // Fullscreen toggle
+                if (e.key === 'f' || e.key === 'F') {
+                    toggleFullscreen();
+                    return;
+                }
+
                 if (!isAppRunning && !isLocked && document.getElementById('layer-start').style.display !== 'none') {
                     if (e.code === 'Space' || e.code === 'ArrowRight' || e.code === 'Enter') startProcess('intro');
                     return;
@@ -436,6 +706,18 @@
                 if(e.clientX > window.innerWidth / 2) nextSlide();
                 else prevSlide();
             });
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
         }
 
         function renderSlides() {
@@ -537,9 +819,56 @@
                     setTimeout(() => {
                         layers.vid.style.display = 'none';
                         isLocked = true;
+                        
+                        // --- START PROFESSIONAL OUTRO SEQUENCE ---
+                        setTimeout(() => {
+                            runProfessionalOutro();
+                        }, 2000);
+
                     }, 1000);
                 };
             }
+        }
+
+        function runProfessionalOutro() {
+            // 1. Show Track
+            document.getElementById('track-stage').style.opacity = '1';
+
+            const train = document.getElementById('loco-train');
+            
+            // 2. Train enters and stops
+            setTimeout(() => {
+                train.classList.add('train-enter');
+                
+                // 3. Wait for train to stop (3.5s transition)
+                setTimeout(() => {
+                    // Train has stopped.
+                    // Names "board" the train (fade out/move down)
+                    const names = document.querySelectorAll('.name-item');
+                    names.forEach((name, index) => {
+                        setTimeout(() => {
+                            name.classList.add('board-train');
+                        }, index * 100); // Staggered effect
+                    });
+
+                    // 4. Wait for boarding to finish
+                    setTimeout(() => {
+                        // 5. Train departs
+                        // DO NOT remove train-enter class, just add depart to override transform
+                        train.classList.add('train-depart');
+
+                        // 6. Show Final Logo
+                        setTimeout(() => {
+                            document.getElementById('final-overlay').style.opacity = '1';
+                            document.getElementById('final-logo').style.opacity = '1';
+                            document.getElementById('final-logo').style.transform = 'translateY(0)';
+                        }, 1000);
+
+                    }, 1500); // Time for names to board
+
+                }, 3500); // Time for train entry + buffer
+
+            }, 500);
         }
 
         window.onload = init;
